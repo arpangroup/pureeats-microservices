@@ -1,0 +1,4 @@
+*.log
+
+inventory-service/logs/
+inventory-service/data/
