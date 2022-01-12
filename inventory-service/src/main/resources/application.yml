@@ -1,0 +1,190 @@
+server:
+  #port: 8080
+  port: 0 # Dynamically assign the free port number during startup
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+
+
+
+#  http.enabled=false
+#  server.port=9092
+#  server.ssl.enabled=true
+#  #server.ssl.key-store:classpath:arpanssl.p12
+#  server.ssl.key-store=${ou.home}/config/certificate/arpanssl.p12
+#  server.ssl.key-store-password:password
+#  server.ssl.keyStoreType:PKCS12
+#  server.ssl.keyAlias:arpanssl
+
+#spring.security.user.name=arpan
+#spring.security.user.password=password
+
+
+#ou.authprovider.bean.name=pureEatsBasicAuthenticationProvider
+
+#spring.profiles.active=devWeb,httpLoggingEnabled,inMemoryMapCache,pureeats
+
+
+
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2MB
+      max-file-size: 5MB
+      max-request-size: 10MB
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  application:
+    name: inventory-service
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+#    url: jdbc:h2:mem:inventoryDb;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:file:./data/inventoryDb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    defer-datasource-initialization: true
+    hibernate:
+#      ddl-auto: none
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql=true:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      additional-paths: /templates
+      enabled: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+logging:
+  #config: ${ou.home}/config/log/logback.xml
+  pattern:
+    #console: "%d %-5level %logger : %msg%n"
+    file: "%d{dd-MMM-yyyy HH:mm:ss} [%thread] %-5level %logger{40} : %msg%n"
+#  level:
+      #org.springframework.web: DEBUG
+      #guru.springframework.controllers: DEBUG
+      #org.hibernate: DEBUG
+  file:
+    name: ${ou.home}/logs/inventory.log
+    #name: inventory.log
+    #path: ${ou.home}/logs
+  logback:
+    rollingpolicy:
+      file-name-pattern: api-%d{yyyy-MM-dd}-%i.log
+      max-file-size: 10MB
+      max-history: 30
+      total-size-cap: 20MB
+      clean-history-on-start: true
+
+
+
+store:
+  default:
+    delivery-time: 20
+    store-type: RESTAURANT
+    delivery-type: DELIVERY
+    rating: 3
+
+storage:
+  provider: FILE
+  #  provider: S3
+  directory: ${ou.home}/storage/stores/
+  download-url: /api/v1/file/
+
+cloud:
+  aws:
+    credentials:
+      access-key: AKIA4X52DSVDYMXRNRXE
+      secret-key: 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
+    region:
+      static: us-east-2
+    bucket:
+      name: pureeats-storage
+
+
+
+# mail.properties
+#email.enable=true
+#email.smtp.host=smtp.gmail.com
+#email.smtp.port=587
+#email.smtp.username=cloud.arpan@gmail.com
+#email.smtp.password=ArpanJ@2021@12345!
+#email.smtp.protocol=smtp
+#email.smtp.tls=false
+#email.ssl.enable=true
+#email.smtp.auth=true
+#email.from=cloud.arpan@gmail.com
+#email.attachment.enabled=false
+#email.attachment.file.type=pdf
+#email.attachment.file.name=attachment
+
+
+#  email.enable=true
+#  email.smtp.host=smtp.hostinger.com
+#  email.smtp.port=587
+#  #email.smtp.username=arpan@anamikasecurity.com
+#  email.smtp.username=arpan@anamikasecurity.com
+#  email.smtp.password=Arpan@2021
+#  email.from=arpan@anamikasecurity.com
+#  email.smtp.protocol=smtp
+#  email.smtp.tls=false
+#  email.ssl.enable=true
+#  email.smtp.auth=true
+#  email.attachment.enabled=false
+#  email.attachment.file.type=pdf
+#  email.attachment.file.name=attachment
+
+
+#  sms.enable=true
+#  sms.url=
+#  sms.params=
+#  sms.send_method=POST
+#  sms.cerificate.enabled=false
+#  sms.socket.valid_period=48
+#  sms.socket.connect.init.msg=
+#  sms.socket.connect.init.resp.msg=
+#  sms.socket.connect.close.resp.msg=
+
+
+##Switch to BOOT/JNDI
+#  datasource.mode = BOOT
+#  dbpass.encryptionKeyLoc=${ou.home}/config/security/db_pass.key
+#  ou.sso_keys_loc=${ou.home}/config/security/sso_keys
+#  #dbpass.encryptionKeyLoc=/home/rsadmin/Project/Applications/BBPS_OU/config/security/db_pass.key
+#  #bank.encryptionKey=werqwe1wsade23dadq23wqd
+#  #Basic security
+#  security.basic.enabled=false
+##spring.profiles.active=devCore
+##SSL configuration
+
+
+
+
+
+## Enable multipart upload
+#  spring.servlet.multipart.enabled=true
+#  # Threshold after which files are written to disk
+#  #spring.servlet.multipart.file-size-threshold=200KB
+#  # Mzx file size
+#  spring.servlet.multipart.max-file-size=5MB
+#  # Max request size
+#  spring.servlet.multipart.max-request-size=215MB
+
+
+### File storage properties
+## All files upload through the REST API will be stored in this directory
+#  file.upload-dir=C:\\storage\\
+#  spring.servlet.multipart.location=C:\\storage\\

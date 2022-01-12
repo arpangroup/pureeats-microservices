@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head1 :: head"></head>
+<style>
+  .table td, .table th {
+    vertical-align: middle;
+  }
+</style>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <nav th:replace="fragments/top_nav :: top_nav"></nav>
+  <aside th:replace="fragments/side_nav :: side_nav"></aside>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard v3</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v3</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <table class="table table-sm">
+                  <thead>
+                  <tr>
+                    <th style="width: 5%;">#</th>
+                    <th style="width: 10%">Image</th>
+                    <th style="width: 15%">Name</th>
+                    <th style="width: 15%">Owner</th>
+                    <th style="width: 15%">Status</th>
+                    <th>Operational Areas</th>
+                    <th style="width: 15%">Created At</th>
+                    <th class="text-center" style="width: 10%;"><i class="icon-circle-down2"></i></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td><img src="http://192.168.43.88:8000/assets/img/restaurants/1610289406K13DhuW1dH.jpg" alt="PureEats Restaurant1" height="80" width="80" style="border-radius: 0.275rem;"></td>
+                    <td>PureEats Restaurant</td>
+                    <td>
+                      <div>
+                        <a href="http://192.168.43.88:8000/admin/impersonate/2" class="mr-1" data-popup="tooltip" data-placement="left" title="" style="border: 1px solid #E0E0E0; border-radius: 0.275rem; padding: 1.5px 4px;" data-original-title="Login as Mintu Jha"> <i class="icon-redo2 text-warning"></i></a>
+                        <a href="http://192.168.43.88:8000/admin/user/edit/2">Mintu Jha</a>
+                      </div>
+                    </td>
+                    <td>closed</td>
+                    <td>
+                      <span class="badge badge-flat border-grey-800 mr-1 mb-2" style="font-size: 0.9rem;">  NA </span>
+                    </td>
+                    <td>11 months ago</td>
+                    <td class="text-center">
+                      <div class="btn-group btn-group-justified align-items-center">
+                        <a href="http://192.168.43.88:8000/admin/store/edit/1" class="badge badge-primary badge-icon"> Edit <i class="icon-database-edit2 ml-1"></i></a>
+                        <a href="http://192.168.43.88:8000/admin/store/1/items" class="badge badge-primary badge-icon ml-1"> <i class="fas fa-eye"></i> </a>
+
+                        <div class="custom-control custom-switch" style="margin-left: 4px;">
+                          <input type="checkbox" class="custom-control-input" checked>
+                          <label class="custom-control-label"></label>
+                        </div>
+
+                      </div>
+                    </td>
+                  </tr>
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.2.0-rc
+    </div>
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js" th:src="@{/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE -->
+<script src="dist/js/adminlte.js" th:src="@{/dist/js/adminlte.js}"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="plugins/chart.js/Chart.min.js" th:src="@{/plugins/chart.js/Chart.min.js}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js" th:src="@{/dist/js/demo.js}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard3.js" th:src="@{/dist/js/pages/dashboard3.js}"></script>
+</body>
+</html>

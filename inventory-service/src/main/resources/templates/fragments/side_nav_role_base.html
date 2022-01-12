@@ -1,0 +1,19 @@
+<div id="layoutSidenav_nav" th:fragment="side_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <li th:each="menu : ${menus}">
+                    <a class="nav-link" th:classappend="${menu.parentId != null} ? collapsed : '' " href="home.html" th:href="${menu.menuURL}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt" th:class="'fas ' + ${menu.menuIcon}"></i></div>
+                        [[${menu.menuName}]]
+                        <div th:if="${menu.parentId != null}" class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                </li>
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            Start Bootstrap
+        </div>
+    </nav>
+</div>

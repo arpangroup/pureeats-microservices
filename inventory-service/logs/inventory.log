@@ -1,0 +1,30 @@
+02-Jan-2022 19:46:47 [restartedMain] INFO  c.a.i.InventoryServiceApplication : Starting InventoryServiceApplication using Java 1.8.0_311 on DESKTOP-MC21FDJ with PID 6436 (E:\projects\git\food-ordering-services\inventory-service\target\classes started by Arpan in E:\projects\git\food-ordering-services\inventory-service)
+02-Jan-2022 19:46:47 [restartedMain] INFO  c.a.i.InventoryServiceApplication : No active profile set, falling back to default profiles: default
+02-Jan-2022 19:46:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+02-Jan-2022 19:46:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+02-Jan-2022 19:46:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+02-Jan-2022 19:46:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 131 ms. Found 11 JPA repository interfaces.
+02-Jan-2022 19:46:50 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http)
+02-Jan-2022 19:46:50 [restartedMain] INFO  org.apache.catalina.core.StandardService : Starting service [Tomcat]
+02-Jan-2022 19:46:50 [restartedMain] INFO  org.apache.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.55]
+02-Jan-2022 19:46:50 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+02-Jan-2022 19:46:50 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3189 ms
+02-Jan-2022 19:46:50 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+02-Jan-2022 19:46:51 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+02-Jan-2022 19:46:51 [restartedMain] INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration : H2 console available at '/h2'. Database available at 'jdbc:h2:file:./data/inventoryDb'
+02-Jan-2022 19:46:51 [restartedMain] INFO  o.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+02-Jan-2022 19:46:51 [restartedMain] INFO  org.hibernate.Version : HHH000412: Hibernate ORM core version 5.6.1.Final
+02-Jan-2022 19:46:51 [restartedMain] INFO  org.hibernate.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+02-Jan-2022 19:46:51 [restartedMain] INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+02-Jan-2022 19:46:51 [restartedMain] INFO  o.h.e.boot.internal.EnversServiceImpl : Envers integration enabled? : true
+02-Jan-2022 19:46:54 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+02-Jan-2022 19:46:54 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+02-Jan-2022 19:46:56 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+02-Jan-2022 19:46:56 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+02-Jan-2022 19:46:58 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+02-Jan-2022 19:46:58 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path ''
+02-Jan-2022 19:46:58 [restartedMain] INFO  c.a.i.InventoryServiceApplication : Started InventoryServiceApplication in 12.15 seconds (JVM running for 14.397)
+02-Jan-2022 19:47:07 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+02-Jan-2022 19:47:07 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+02-Jan-2022 19:47:07 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet : Completed initialization in 1 ms
+02-Jan-2022 19:47:08 [http-nio-8080-exec-8] INFO  o.springdoc.api.AbstractOpenApiResource : Init duration for springdoc-openapi is: 860 ms
