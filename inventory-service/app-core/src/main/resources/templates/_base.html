@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+    th:fragment="layout(pageContent)">
+<head th:replace="common/frgments :: head">
+<body>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div th:replace="common/frgments :: sidenav"></div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <div th:replace="common/frgments :: top_nav"></div>
+
+        <!--<main th:replace="common/frgments :: index_page">
+        </main>-->
+        <main role="main" class="main">
+            <!--<div class="alert alert-info fade show">
+                <a href="#" class="close" data-dismiss="alert">×</a>
+                <strong>Note:</strong> See the tutorial on <a href="/twitter-bootstrap-tutorial/bootstrap-tables.php" class="alert-link" target="_blank">Bootstrap Tables</a> to learn how to customize this layout further.&nbsp;Bootstrap 3 version of this snippet is <a rel="nofollow" href="/codelab.php?topic=bootstrap-3&amp;file=data-table-with-search-box" target="_blank" class="alert-link">available here</a>.
+            </div>-->
+
+            <div th:if="${session.message}" class="alert text-center fade show" th:classappend="${'alert-' + session.message.type}" role="alert">
+                <a href="#" class="close" data-dismiss="alert" style="text-decoration: none!important;">×</a>
+                <strong th:text="${session.message.content}"></strong>
+
+                <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+            </div>
+
+            <div th:replace="${pageContent}"></div>
+
+        </main>
+    </div>
+</div>
+<footer th:replace="common/frgments :: footer"></footer>
+</body>
+</html>

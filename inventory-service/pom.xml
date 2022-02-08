@@ -6,7 +6,7 @@
     <modules>
         <module>app-domain</module>
         <module>app-core</module>
-        <module>onboarding-service</module>
+        <module>app-onboard</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

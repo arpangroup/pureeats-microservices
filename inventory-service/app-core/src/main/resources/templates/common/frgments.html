@@ -1,0 +1,574 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en" >
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">-->
+<!--   -->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link href="css/styles.css" rel="stylesheet" th:href="@{/css/style.css}"/>
+    <style>
+        body {
+            color: #404E67;
+            background: #F5F7FA;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .table-wrapper {
+            width: 700px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        }
+        .table-title {
+            padding-bottom: 10px;
+            margin: 0 0 10px;
+        }
+        .table-title h2 {
+            margin: 6px 0 0;
+            font-size: 22px;
+        }
+        .table-title .add-new {
+            float: right;
+            height: 30px;
+            font-weight: bold;
+            font-size: 12px;
+            text-shadow: none;
+            min-width: 100px;
+            border-radius: 50px;
+            line-height: 13px;
+        }
+        .table-title .add-new i {
+            margin-right: 4px;
+        }
+        table.table {
+            table-layout: fixed;
+        }
+        table.table tr th, table.table tr td {
+            border-color: #e9e9e9;
+            text-align: center;
+        }
+        table.table th i {
+            font-size: 13px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        table.table th:last-child {
+            width: 150px;
+        }
+        table.table td a {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 5px;
+            min-width: 24px;
+            /*color: black;*/
+            text-align: center;
+            text-decoration: none;
+        }
+        table.table td a.add {
+            color: #27C46B;
+        }
+        table.table td a.edit {
+            color: #FFC107;
+        }
+        table.table td a.delete {
+            color: #E34724;
+        }
+        table.table td i {
+            font-size: 19px;
+        }
+        table.table td a.add i {
+            font-size: 24px;
+            margin-right: -1px;
+            position: relative;
+            top: 3px;
+        }
+        table.table .form-control {
+            height: 32px;
+            line-height: 32px;
+            box-shadow: none;
+            border-radius: 2px;
+        }
+        table.table .form-control.error {
+            border-color: #f50000;
+        }
+        table.table td .add {
+            display: none;
+        }
+
+
+        search-box {
+            position: relative;
+            float: right;
+        }
+        .search-box input {
+            height: 34px;
+            border-radius: 20px;
+            padding-left: 35px;
+            border-color: #ddd;
+            box-shadow: none;
+        }
+        .search-box input:focus {
+            border-color: #3FBAE4;
+        }
+        .search-box i {
+            color: #a0a5b1;
+            position: absolute;
+            font-size: 19px;
+            top: 8px;
+            left: 10px;
+        }
+
+        .pagination {
+            float: right;
+            margin: 0 0 5px;
+        }
+        .pagination li a {
+            border: none;
+            font-size: 95%;
+            width: 30px;
+            height: 30px;
+            color: #999;
+            margin: 0 2px;
+            line-height: 30px;
+            border-radius: 30px !important;
+            text-align: center;
+            padding: 0;
+        }
+        .pagination li a:hover {
+            color: #666;
+        }
+        .pagination li.active a {
+            background: #03A9F4;
+        }
+        .pagination li.active a:hover {
+            background: #0397d6;
+        }
+        .pagination li.disabled i {
+            color: #ccc;
+        }
+        .pagination li i {
+            font-size: 16px;
+            padding-top: 6px
+        }
+        .hint-text {
+            float: left;
+            margin-top: 6px;
+            font-size: 95%;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        body {
+            color: #566787;
+            background: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+        }
+        .table-responsive {
+            margin: 30px 0;
+        }
+        .table-wrapper {
+            min-width: 1000px;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        }
+        .table-title {
+            padding-bottom: 10px;
+            margin: 0 0 10px;
+            min-width: 100%;
+        }
+        .table-title h2 {
+            margin: 8px 0 0;
+            font-size: 22px;
+        }
+        .search-box {
+            position: relative;
+            float: right;
+        }
+        .search-box input {
+            height: 34px;
+            border-radius: 20px;
+            padding-left: 35px;
+            border-color: #ddd;
+            box-shadow: none;
+        }
+        .search-box input:focus {
+            border-color: #3FBAE4;
+        }
+        .search-box i {
+            color: #a0a5b1;
+            position: absolute;
+            font-size: 19px;
+            top: 8px;
+            left: 10px;
+        }
+        table.table tr th, table.table tr td {
+            border-color: #e9e9e9;
+            text-align: center;
+        }
+        table.table-striped tbody tr:nth-of-type(odd) {
+            background-color: #fcfcfc;
+        }
+        table.table-striped.table-hover tbody tr:hover {
+            background: #f5f5f5;
+        }
+        table.table th i {
+            font-size: 13px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        table.table td:last-child {
+            width: 130px;
+        }
+        table.table td a {
+            color: #a0a5b1;
+            display: inline-block;
+            margin: 0 5px;
+            text-align: center;
+            text-decoration: none;
+        }
+        table.table td a.view {
+            color: #03A9F4;
+        }
+        table.table td a.edit {
+            color: #FFC107;
+        }
+        table.table td a.delete {
+            color: #E34724;
+        }
+        table.table td i {
+            font-size: 19px;
+        }
+        .pagination {
+            float: right;
+            margin: 0 0 5px;
+        }
+        .pagination li a {
+            border: none;
+            font-size: 95%;
+            width: 30px;
+            height: 30px;
+            color: #999;
+            margin: 0 2px;
+            line-height: 30px;
+            border-radius: 30px !important;
+            text-align: center;
+            padding: 0;
+        }
+        .pagination li a:hover {
+            color: #666;
+        }
+        .pagination li.active a {
+            background: #03A9F4;
+        }
+        .pagination li.active a:hover {
+            background: #0397d6;
+        }
+        .pagination li.disabled i {
+            color: #ccc;
+        }
+        .pagination li i {
+            font-size: 16px;
+            padding-top: 6px
+        }
+        .hint-text {
+            float: left;
+            margin-top: 6px;
+            font-size: 95%;
+        }
+
+
+
+
+        /*NAVBAR[START]*/
+        .form-inline {
+            display: inline-block;
+        }
+        .navbar-header.col {
+            padding: 0 !important;
+        }
+        .navbar {
+            background: #fff;
+            padding-left: 16px;
+            padding-right: 16px;
+            border-bottom: 1px solid #d6d6d6;
+            box-shadow: 0 0 4px rgba(0,0,0,.1);
+        }
+        .nav-link img {
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            margin: -8px 0;
+            float: left;
+            margin-right: 10px;
+        }
+        .navbar .navbar-brand {
+            color: #555;
+            padding-left: 0;
+            padding-right: 50px;
+            font-family: 'Merienda One', sans-serif;
+        }
+        .navbar .navbar-brand i {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+        .search-box {
+            position: relative;
+        }
+        .search-box input {
+            box-shadow: none;
+            padding-right: 35px;
+            border-radius: 3px !important;
+        }
+        .search-box .input-group-addon {
+            min-width: 35px;
+            border: none;
+            background: transparent;
+            position: absolute;
+            right: 0;
+            z-index: 9;
+            padding: 7px;
+            height: 100%;
+        }
+        .search-box i {
+            color: #a0a5b1;
+            font-size: 19px;
+        }
+        .navbar .nav-item i {
+            font-size: 18px;
+        }
+        .navbar .dropdown-item i {
+            font-size: 16px;
+            min-width: 22px;
+        }
+        .navbar .nav-item.open > a {
+            background: none !important;
+        }
+        .navbar .dropdown-menu {
+            border-radius: 1px;
+            border-color: #e5e5e5;
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+        }
+        .navbar .dropdown-menu a {
+            color: #777;
+            padding: 8px 20px;
+            line-height: normal;
+        }
+        .navbar .dropdown-menu a:hover, .navbar .dropdown-menu a:active {
+            color: #333;
+        }
+        .navbar .dropdown-item .material-icons {
+            font-size: 21px;
+            line-height: 16px;
+            vertical-align: middle;
+            margin-top: -2px;
+        }
+        .navbar .badge {
+            color: #fff;
+            background: #f44336;
+            font-size: 11px;
+            border-radius: 20px;
+            position: absolute;
+            min-width: 10px;
+            padding: 4px 6px 0;
+            min-height: 18px;
+            top: 5px;
+        }
+        .navbar a.notifications, .navbar a.messages {
+            position: relative;
+            margin-right: 10px;
+        }
+        .navbar a.messages {
+            margin-right: 20px;
+        }
+        .navbar a.notifications .badge {
+            margin-left: -8px;
+        }
+        .navbar a.messages .badge {
+            margin-left: -4px;
+        }
+        .navbar .active a, .navbar .active a:hover, .navbar .active a:focus {
+            background: transparent !important;
+        }
+        @media (min-width: 1200px){
+            .form-inline .input-group {
+                width: 300px;
+                margin-left: 30px;
+            }
+        }
+        @media (max-width: 1199px) {
+            .form-inline {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .input-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div th:fragment="sidenav" class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">PureEats</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!" th:href="@{/cities}">Cities</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!" th:href="@{/cuisines}">Cuisines</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+            </div>
+        </div>
+
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Top navigation-->
+            <nav th:fragment="top_nav1" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#!">Action</a>
+                                    <a class="dropdown-item" href="#!">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#!">Something else here</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <nav th:fragment="top_nav" class="navbar navbar-expand-xl navbar-light bg-light">
+                <a href="#" class="navbar-brand collapse navbar-collapse"><i class="fa fa-cube"></i>Brand<b>Name</b></a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Collection of nav links, forms, and other content for toggling -->
+                <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-item nav-link active">Home</a>
+                        <a href="#" class="nav-item nav-link">About</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services</a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Web Design</a>
+                                <a href="#" class="dropdown-item">Web Development</a>
+                                <a href="#" class="dropdown-item">Graphic Design</a>
+                                <a href="#" class="dropdown-item">Digital Marketing</a>
+                            </div>
+                        </div>
+                        <a href="#" class="nav-item nav-link">Blog</a>
+                        <a href="#" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <form class="navbar-form form-inline">
+                        <div class="input-group search-box">
+                            <input type="text" id="search" class="form-control" placeholder="Search by Name">
+                            <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+                        </div>
+                    </form>
+                    <div class="navbar-nav ml-auto">
+                        <a href="#" class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span class="badge">1</span></a>
+                        <a href="#" class="nav-item nav-link messages"><i class="fa fa-envelope-o"></i><span class="badge">10</span></a></a>
+                        <div class="nav-item dropdown">
+                            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="/examples/images/avatar/2.jpg" th:src="@{/image/avatar.jpg}" class="avatar" alt="Avatar"> Paula Wilson <b class="caret"></b></a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
+                                <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a></a>
+                                <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- Page content-->
+            <main th:fragment="index_page" role="main" class="container-fluid">
+
+                <div class="alert alert-info fade show">
+                    <a href="#" class="close" data-dismiss="alert">×</a>
+                    <strong>Note:</strong> See the tutorial on <a href="/twitter-bootstrap-tutorial/bootstrap-tables.php" class="alert-link" target="_blank">Bootstrap Tables</a> to learn how to customize this layout further.&nbsp;Bootstrap 3 version of this snippet is <a rel="nofollow" href="/codelab.php?topic=bootstrap-3&amp;file=data-table-with-search-box" target="_blank" class="alert-link">available here</a>.
+                </div>
+
+                <!-- Main jumbotron for a primary marketing message or call to action -->
+                <div class="jumbotron">
+                    <div class="container">
+                        <h1 class="display-3">Hello, world!</h1>
+                        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <!-- Example row of columns -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h2>Heading</h2>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Heading</h2>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Heading</h2>
+                            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                </div> <!-- /container -->
+            </main>
+        </div>
+    </div>
+
+    <footer th:fragment="footer">
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js" th:src="@{/js/scripts.js}"></script>
+    </footer>
+</body>
+</html>

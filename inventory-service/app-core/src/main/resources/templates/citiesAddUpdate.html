@@ -1,0 +1,143 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head th:replace="common/frgments :: head">
+
+</head>
+<body>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div th:replace="common/frgments :: sidenav"></div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <div th:replace="common/frgments :: top_nav"></div>
+
+        <main role="main" class="main p-16">
+
+            <h3>Add New City</h3>
+            <!--<div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-danger fade show">
+                        <a href="#" class="close" data-dismiss="alert">×</a>
+                        <strong>Note:</strong> See the tutorial on <a href="/twitter-bootstrap-tutorial/bootstrap-tables.php" class="alert-link" target="_blank">Bootstrap Tables</a> to learn how to customize this layout further.&nbsp;Bootstrap 3 version of this snippet is <a rel="nofollow" href="/codelab.php?topic=bootstrap-3&amp;file=data-table-with-search-box" target="_blank" class="alert-link">available here</a>.
+                    </div>
+                </div>
+            </div>-->
+
+            <form action="#" th:action="@{/cities/addNewCity}" th:object="${city}" method="post">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <!-- CityName, Country -->
+                               <div class="form-row">
+                                   <div class="form-group col-md-8">
+                                       <input type="text" th:field="*{name}" class="form-control" id="cityName" placeholder="City Name">
+                                   </div>
+
+                                   <div class="form-group col-md-4">
+                                       <select class="form-control form-control" id="country">
+                                           <option selected>India</option>
+                                           <option value="1">Australia</option>
+                                           <option value="2">Japan</option>
+                                           <option value="3">BAngladesh</option>
+                                       </select>
+                                   </div>
+                               </div>
+                                <!-- ./CityName, Country -->
+
+                                <!-- state, Zip-->
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <select id="inputState" class="form-control">
+                                            <option selected>Select State...</option>
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="number" class="form-control" id="inputZip" placeholder="Zip code">
+                                    </div>
+                                </div>
+                                <!-- ./state, Zip-->
+
+
+                                <!-- Lat,Lng-->
+                                <div class="form-row">
+                                    <div class="col">
+                                        <input type="number" class="form-control" placeholder="Latitude">
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" class="form-control" placeholder="Longitude">
+                                    </div>
+                                </div>
+                                <!-- ./Lat,Lng-->
+
+
+                                <div class="checkbox">
+                                    <label><input type="checkbox" checked> Is Active</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <!-- Cuisines -->
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Cuisines</label>
+                                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                                        <option>Cuisine1</option>
+                                        <option>Cuisine2</option>
+                                        <option>Cuisine3</option>
+                                        <option>Cuisine4</option>
+                                        <option>Cuisine5</option>
+                                    </select>
+                                </div>
+                                <!-- ./Cuisines -->
+
+
+                                <!-- Collections -->
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Collections</label>
+                                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                                <!-- ./Collections -->
+
+                                <!-- Establishment -->
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Establishment</label>
+                                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                                <!-- ./Establishment -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+
+        </main>
+    </div>
+</div>
+<footer th:replace="common/frgments :: footer"></footer>
+</body>
+</html>

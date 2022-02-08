@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head th:replace="common/frgments :: head">
+</head>
+<body>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div th:replace="common/frgments :: sidenav"></div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <div th:replace="common/frgments :: top_nav"></div>
+
+        <main th:replace="common/frgments :: index_page">
+        </main>
+    </div>
+</div>
+    <footer th:replace="common/frgments :: footer"></footer>
+</body>
+</html>
